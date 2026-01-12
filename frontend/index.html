@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Inventaris Barang</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Aplikasi Inventaris Barang</h1>
+            <p>Kelola stok barang dengan mudah</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Form Input -->
+            <div class="form-section">
+                <h2 id="form-title">Tambah Barang Baru</h2>
+                <form id="itemForm" enctype="multipart/form-data">
+                    <input type="hidden" id="itemId">
+                    
+                    <div class="form-group">
+                        <label for="name">Nama Barang *</label>
+                        <input type="text" id="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Deskripsi</label>
+                        <textarea id="description" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="quantity">Jumlah *</label>
+                            <input type="number" id="quantity" required min="0">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Harga (Rp)</label>
+                            <input type="number" id="price" step="0.01" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Foto Barang</label>
+                        <input type="file" id="image" accept="image/*">
+                        <div id="imagePreview" class="image-preview"></div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submitBtn">Tambah Barang</button>
+                        <button type="button" id="cancelBtn" style="display: none;">Batal</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Daftar Barang -->
+            <div class="list-section">
+                <h2>Daftar Barang</h2>
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Cari barang...">
+                </div>
+                <div id="loading" class="loading">Memuat data...</div>
+                <div id="itemsList" class="items-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
